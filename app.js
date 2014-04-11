@@ -6,10 +6,11 @@ var request = require('request'),
 var ret = {};
 
 app.use(express.static('public'));
-app.get('/api/app.json', function(req, res) {
+app.get('/api.json', function(req, res) {
   res.json(ret);
 });
 
+// setInterval here
 request('http://www2.sabesp.com.br/mananciais/DivulgacaoSiteSabesp.aspx', function (err, response, body) {
   if (err) {
     console.log('err');
