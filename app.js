@@ -23,8 +23,9 @@ request('http://www2.sabesp.com.br/mananciais/DivulgacaoSiteSabesp.aspx', functi
 
   $('.guardaImgBgDetalhe').each(function() {
     var tr = $(this).parent();
+
     data.push({
-      title: tr.find('.guardaImgBg').eq(0).text(),
+      key: tr.find('.guardaImgBg').eq(0).text(),
       value: tr.find('.guardaImgBgDetalhe').eq(0).text()
     });
   });
