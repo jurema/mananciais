@@ -18,11 +18,21 @@ request('http://www2.sabesp.com.br/mananciais/DivulgacaoSiteSabesp.aspx', functi
     return;
   }
 
-  // jquery
-  var $ = cheerio.load(body);
-  var dado = $('.guardaImgBgDetalhe'),
+  var $ = cheerio.load(body),
+      data = [];
 
-  cantareiraVol = dado[0].children[0].data,
+  $('.guardaImgBgDetalhe').each(function() {
+    var tr = $(this).parent();
+    data.push({
+      title: tr.find('.guardaImgBg').eq(0).text(),
+      value: tr.find('.guardaImgBgDetalhe').eq(0).text()
+    });
+  });
+
+  ret = data;
+  return;
+  /*
+  var cantareiraVol = dado[0].children[0].data,
   altoTieteVol = dado[4].children[0].data,
   guarapirangaVol = dado[8].children[0].data,
   altoCotiaVol = dado[12].children[0].data,
@@ -34,7 +44,7 @@ request('http://www2.sabesp.com.br/mananciais/DivulgacaoSiteSabesp.aspx', functi
   ret.cotia = altoCotiaVol;
   ret.riogrande = rioGrandeVol;
   ret.rioclaro = rioClaroVol;
-  console.log(dado[0].children[0].data);
+  */
 });
 
 app.listen(3000);
