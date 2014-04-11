@@ -20,7 +20,7 @@ request('http://www2.sabesp.com.br/mananciais/DivulgacaoSiteSabesp.aspx', functi
 
   // jquery
   var $ = cheerio.load(body);
-  var dado = $(body).find('.guardaImgBgDetalhe'),
+  var dado = $('.guardaImgBgDetalhe'),
 
   cantareiraVol = dado[0].children[0].data,
   altoTieteVol = dado[4].children[0].data,
