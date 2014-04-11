@@ -1,5 +1,3 @@
-// npm install request cheerio express # poor man's package.json
-
 var request = require('request'),
     cheerio = require('cheerio'),
     express = require('express'),
@@ -8,18 +6,21 @@ var request = require('request'),
 var ret = {};
 
 app.use(express.static('public'));
-app.get('/api/app.json', function(req, res){
+app.get('/api/app.json', function(req, res) {
   res.json(ret);
 });
 
 request('http://www2.sabesp.com.br/mananciais/DivulgacaoSiteSabesp.aspx', function (err, response, body) {
   if (err) {
     console.log('err');
+    ret = {};
+    return;
   }
-  var $ = cheerio.load(body);
 
   // jquery
+  var $ = cheerio.load(body);
   var dado = $(body).find('.guardaImgBgDetalhe'),
+
   cantareiraVol = dado[0].children[0].data,
   altoTieteVol = dado[4].children[0].data,
   guarapirangaVol = dado[8].children[0].data,
