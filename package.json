@@ -1,0 +1,16 @@
+{
+  "name": "mananciais",
+  "version": "0.0.0",
+  "description": "situação dos mananciais de sp",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": ">= 4.0.0",
+    "request": ">= 2.3.4",
+    "cheerio": ">= 0.15.0"
+  },
+  "author": "",
+  "license": "MIT"
+}
