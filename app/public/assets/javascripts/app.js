@@ -55,6 +55,7 @@ app.controller('homeCtrl', function($scope, $timeout, $rootScope) {
     };
     $timeout(indicatorAnimate, 500);
     $('.represas h3 a').click(function() {
+        $('.change').css('background', 'url(app/public/assets/images/none.png) no-repeat 95% 23px rgba(32, 47, 48, 0.9)');
         var wrongVolume = $(this).attr("data-volume"),
             againWrongVolume = wrongVolume.substring(0, wrongVolume.length - 2),
             volume = parseInt(againWrongVolume.replace(',', '.'), 10) + parseInt(1, 10),
@@ -87,7 +88,6 @@ app.controller('homeCtrl', function($scope, $timeout, $rootScope) {
                 }
             }
         });
-        $('.change').css('background', 'url(app/public/assets/images/none.png) no-repeat 95% 23px rgba(32, 47, 48, 0.9)');
         if (id === "none") {
             $('.indicator').css('top', '47%');
             $('.water').css('height', '50%');
