@@ -1,10 +1,19 @@
 var request = require('request'),
     cheerio = require('cheerio'),
     express = require('express'),
+    logger = require('morgan'),
     app = express();
 
 var ret = {};
 
+function log() {
+  if (!arguments.length) return logger(' > :remote-addr - [:date] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent" - :response-time ms');
+  var args = Array.prototype.slice.call(arguments);
+  args.unshift(' > fetching data - [' + new Date().toUTCString() + '] -');
+  console.log.apply(null, args);
+}
+
+app.use(log());
 app.use(express.static('public'));
 app.get('/api.json', function(req, res) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -13,10 +22,9 @@ app.get('/api.json', function(req, res) {
 });
 
 function fetch() {
-  console.log(' -> Fetching data...');
   request('http://www2.sabesp.com.br/mananciais/DivulgacaoSiteSabesp.aspx', function (err, response, body) {
     if (err) {
-      console.log('    Something went wrong', err);
+      log('failed.', err);
       ret = {};
       return;
     }
@@ -32,12 +40,12 @@ function fetch() {
       });
     });
 
-    console.log('    Done!');
+    log('done.');
     if (data.length) ret = data;
   });
 }
 
-console.log('==> Server started');
+console.log('=> Server started');
 setInterval(fetch, 1000 * 60 * 60 * 12); // 12 hours interval
 fetch(); // first kick off
 app.listen(process.env.PORT || 3000);

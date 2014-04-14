@@ -9,6 +9,7 @@
   "dependencies": {
     "express": ">= 4.0.0",
     "request": ">= 2.3.4",
+    "morgan": "1.x",
     "cheerio": ">= 0.15.0"
   },
   "author": "",
