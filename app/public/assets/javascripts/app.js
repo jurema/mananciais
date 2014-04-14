@@ -50,12 +50,14 @@ app.run(function($rootScope, $http) {
 //controllers
 app.controller('homeCtrl', function($scope, $timeout, $rootScope) {
     var indicatorAnimate = function() {
-        $('.indicator').css('top', '62%');
+        $('.indicator').css('top', '62%').removeClass('rotate');
         $('.water').css('height', '35%');
     };
     $timeout(indicatorAnimate, 500);
     $('.represas h3 a').click(function() {
-        $('.change').css('background', 'url(app/public/assets/images/none.png) no-repeat 95% 23px rgba(32, 47, 48, 0.9)');
+        $('.value').removeClass('rotate-inverse');
+        $('.indicator').removeClass('rotate');
+        $('.change').css('background', 'url(app/public/assets/images/arrow-down.png) no-repeat 95% 23px rgba(32, 47, 48, 0.9)');
         var wrongVolume = $(this).attr("data-volume"),
             againWrongVolume = wrongVolume.substring(0, wrongVolume.length - 2),
             volume = parseInt(againWrongVolume.replace(',', '.'), 10) + parseInt(1, 10),
@@ -65,8 +67,15 @@ app.controller('homeCtrl', function($scope, $timeout, $rootScope) {
                     $('.water').css('height', '35%');
                     $('.indicator').css('top', '62%');
                 } else {
-                    $('.water').css('height', '' + volume + '%');
-                    $('.indicator').css('top', '' + indicator + '%');
+                    if (volume < 100) {
+                        $('.indicator').css('top', ''+ indicator +'%').removeClass('rotate');
+                        $('.water').css('height', ''+ volume +'%');
+                        $('.value').removeClass('rotate-inverse');
+                    } else {
+                        $('.indicator').css('top', '1%').addClass('rotate');
+                        setTimeout(function(){ $('.value').addClass('rotate-inverse'); }, 2200);
+                        $('.water').css('height', '99%');
+                    }
                 }
             },
             id = $(this).attr("data-id");
@@ -82,9 +91,9 @@ app.controller('homeCtrl', function($scope, $timeout, $rootScope) {
             easing: 'swing',
             step: function() {
                 if (id != "none") {
-                    $('.indicator').text(parseInt(this.someValue, 0) + "%");
+                    $('.value').text(parseInt(this.someValue, 0) + "%");
                 } else {
-                    $('.indicator').text('?');
+                    $('.value').text('!');
                 }
             }
         });
@@ -105,7 +114,7 @@ app.controller('homeCtrl', function($scope, $timeout, $rootScope) {
         if ($('.represas').is(":visible") === true) {
             $('.change').css('background', 'url(app/public/assets/images/close.png) no-repeat 95% 23px rgba(33, 52, 54, 0.9)');
         } else {
-            $('.change').css('background', 'url(app/public/assets/images/none.png) no-repeat 95% 23px rgba(32, 47, 48, 0.9)');
+            $('.change').css('background', 'url(app/public/assets/images/arrow-down.png) no-repeat 95% 23px rgba(32, 47, 48, 0.9)');
         }
     });
 });

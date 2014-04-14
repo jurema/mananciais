@@ -233,14 +233,14 @@ a:hover {
     color: #f1e790;
 }
 .change {
-    background: url(../images/none.png) no-repeat 95% 23px rgba(33, 52, 54, 0.9);
+    background: url(../images/arrow-down.png) no-repeat 95% 20px rgba(33, 52, 54, 0.9);
     width: auto;
     display: block;
     padding: 15px;
     margin-top: 25px;
 }
 .change:hover {
-    background: url(../images/none.png) no-repeat 95% 23px rgba(32, 47, 48, 0.9);
+    background: url(../images/arrow-down.png) no-repeat 95% 20px rgba(32, 47, 48, 0.9);
 }
 .represas {
     display: none;
@@ -249,6 +249,32 @@ a:hover {
     padding: 15px 15px 0px 15px;
     position: absolute;
     z-index: 9999;
+}
+.rotate {
+    transform:rotate(90deg);
+-ms-transform:rotate(90deg); /* IE 9 */
+-webkit-transform:rotate(90deg); /* Opera, Chrome, and Safari */
+}
+
+.rotate-inverse {
+    transform:rotate(-90deg);
+-ms-transform:rotate(-90deg); /* IE 9 */
+-webkit-transform:rotate(-90deg); /* Opera, Chrome, and Safari */
+    -webkit-transition: all .3s linear;
+    -moz-transition: all .3s linear;
+    -o-transition: all .3s linear;
+    -ms-transition: all .3s linear;
+    transition: all .3s linear;
+    text-indent: 8px !important;
+    padding-top: 4px;
+
+}
+.teste {
+    -webkit-transition: all .3s linear;
+    -moz-transition: all .3s linear;
+    -o-transition: all .3s linear;
+    -ms-transition: all .3s linear;
+    transition: all .3s linear;
 }
 .represas h3 {
     margin: 0;
