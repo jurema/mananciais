@@ -6,6 +6,7 @@ var request = require('request'),
 
 var ret = {};
 
+// connect.logger + customization
 function log() {
   if (!arguments.length) return logger(' > :remote-addr - [:date] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent" - :response-time ms');
   var args = Array.prototype.slice.call(arguments);

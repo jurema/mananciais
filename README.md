@@ -8,7 +8,7 @@ Situação dos mananciais de SP
 
 ### Run the server
 
-`node app.js`
+`[PORT=3000] node app.js`
 
 ### See also
 
