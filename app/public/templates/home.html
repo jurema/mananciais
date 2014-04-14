@@ -1,0 +1,48 @@
+<section class="container">
+    <h1>Níveis dos mananciais</h1>
+    <h2>em São Paulo</h2>
+    <h3><a href="#" class="change">Escolha uma das represas </a>
+    </h3>
+    <nav class="represas">
+        <h3><a data-volume="" data-id="none">Escolha uma das represas </a>
+        </h3>
+        <h3><a data-volume="{{dados[0].value}}" data-id="0">Sistema Cantareira</a>
+        </h3>
+        <h3><a data-volume="{{dados[4].value}}" data-id="4">Sistema Alto Tietê</a>
+        </h3>
+        <h3><a data-volume="{{dados[8].value}}" data-id="8">Sistema Guarapiganga</a>
+        </h3>
+        <h3><a data-volume="{{dados[12].value}}" data-id="12">Sistema Cotia</a>
+        </h3>
+        <h3><a data-volume="{{dados[16].value}}" data-id="16">Sistema Rio Grande</a>
+        </h3>
+        <h3><a data-volume="{{dados[20].value}}" data-id="20">Sistema Rio Claro</a>
+        </h3>
+    </nav>
+    <article>
+        <div class="block iconvolume">
+            <img src="app/public/assets/images/icons/volume.png" height="51" width="51">
+            <div class="tooltip">
+                <span>volume armazenado</span>
+            </div>
+            <p class="volume"></p>
+        </div>
+        <div class="block iconpday">
+            <img src="app/public/assets/images/icons/rain.png" height="51" width="51">
+            <div class="tooltip">
+                <span>pluviometria do dia</span>
+            </div>
+            <p class="pday"></p>
+        </div>
+        <div class="block iconpmonth">
+            <img src="app/public/assets/images/icons/rain-month.png" height="51" width="51">
+            <div class="tooltip">
+                <span>pluviometria acumulada no mês</span>
+            </div>
+            <p class="pmonth"></p>
+        </div>
+    </article>
+</section>
+<div class="indicator">!</div>
+<div class="ruler"></div>
+<div class="water"></div>
