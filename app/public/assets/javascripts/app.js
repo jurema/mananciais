@@ -60,6 +60,9 @@ app.controller('homeCtrl', function($scope, $timeout, $rootScope) {
         $('#show-graph').click(function(event) {
             event.preventDefault();
             $('canvas').fadeIn('fast');
+            var myLine = new Chart(document.getElementById("canvas").getContext("2d")).Line(lineChartData, {
+                scaleFontColor: "#fff"
+            });
         });
         $('.value').removeClass('rotate-inverse');
         $('.indicator').removeClass('rotate');
@@ -141,9 +144,6 @@ app.controller('homeCtrl', function($scope, $timeout, $rootScope) {
                 }]
 
             };
-            var myLine = new Chart(document.getElementById("canvas").getContext("2d")).Line(lineChartData, {
-                scaleFontColor: "#fff"
-            });
         }
     });
     $('.change').click(function(event) {
