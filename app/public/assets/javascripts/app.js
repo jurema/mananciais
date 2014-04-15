@@ -53,8 +53,14 @@ app.controller('homeCtrl', function($scope, $timeout, $rootScope) {
         $('.indicator').css('top', '62%').removeClass('rotate');
         $('.water').css('height', '35%');
     };
+    $('canvas').hide();
     $timeout(indicatorAnimate, 500);
     $('.represas h3 a').click(function() {
+        $('canvas').fadeOut('fast');
+        $('#show-graph').click(function(event) {
+            event.preventDefault();
+            $('canvas').fadeIn('fast');
+        });
         $('.value').removeClass('rotate-inverse');
         $('.indicator').removeClass('rotate');
         $('.change').css('background', 'url(app/public/assets/images/arrow-down.png) no-repeat 95% 23px rgba(32, 47, 48, 0.9)');
@@ -135,7 +141,7 @@ app.controller('homeCtrl', function($scope, $timeout, $rootScope) {
                 }]
 
             };
-                        var myLine = new Chart(document.getElementById("canvas").getContext("2d")).Line(lineChartData, {
+            var myLine = new Chart(document.getElementById("canvas").getContext("2d")).Line(lineChartData, {
                 scaleFontColor: "#fff"
             });
         }
