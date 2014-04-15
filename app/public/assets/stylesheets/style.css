@@ -172,6 +172,8 @@ p {
     float: left;
     margin-top: 15px;
 }
+
+/* ICONS */
 .iconvolume {
     width: auto;
     height: auto;
@@ -220,6 +222,8 @@ article {
     padding:5px;
     display: block;
 }
+
+/* LINKS */
 a {
     color: #fff;
     text-decoration: none;
@@ -232,6 +236,8 @@ a {
 a:hover {
     color: #f1e790;
 }
+
+/* DROPDOWNS */
 .change {
     background: url(../images/arrow-down.png) no-repeat 95% 20px rgba(33, 52, 54, 0.9);
     width: auto;
@@ -250,16 +256,26 @@ a:hover {
     position: absolute;
     z-index: 9999;
 }
-.rotate {
-    transform:rotate(90deg);
--ms-transform:rotate(90deg); /* IE 9 */
--webkit-transform:rotate(90deg); /* Opera, Chrome, and Safari */
+.represas h3 {
+    margin: 0;
+    padding-bottom: 15px;
+    cursor: pointer;
 }
 
+/* RESET ANIMATIONS */
+.rotate {
+    transform:rotate(90deg);
+    -ms-transform:rotate(90deg);
+    /* IE 9 */
+    -webkit-transform:rotate(90deg);
+    /* Opera, Chrome, and Safari */
+}
 .rotate-inverse {
     transform:rotate(-90deg);
--ms-transform:rotate(-90deg); /* IE 9 */
--webkit-transform:rotate(-90deg); /* Opera, Chrome, and Safari */
+    -ms-transform:rotate(-90deg);
+    /* IE 9 */
+    -webkit-transform:rotate(-90deg);
+    /* Opera, Chrome, and Safari */
     -webkit-transition: all .3s linear;
     -moz-transition: all .3s linear;
     -o-transition: all .3s linear;
@@ -267,20 +283,10 @@ a:hover {
     transition: all .3s linear;
     text-indent: 8px !important;
     padding-top: 4px;
+}
 
-}
-.teste {
-    -webkit-transition: all .3s linear;
-    -moz-transition: all .3s linear;
-    -o-transition: all .3s linear;
-    -ms-transition: all .3s linear;
-    transition: all .3s linear;
-}
-.represas h3 {
-    margin: 0;
-    padding-bottom: 15px;
-    cursor: pointer;
-}
+
+/* FOOTER */
 .social {
     float: left;
 }

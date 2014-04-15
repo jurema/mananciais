@@ -68,12 +68,14 @@ app.controller('homeCtrl', function($scope, $timeout, $rootScope) {
                     $('.indicator').css('top', '62%');
                 } else {
                     if (volume < 100) {
-                        $('.indicator').css('top', ''+ indicator +'%').removeClass('rotate');
-                        $('.water').css('height', ''+ volume +'%');
+                        $('.indicator').css('top', '' + indicator + '%').removeClass('rotate');
+                        $('.water').css('height', '' + volume + '%');
                         $('.value').removeClass('rotate-inverse');
                     } else {
                         $('.indicator').css('top', '1%').addClass('rotate');
-                        setTimeout(function(){ $('.value').addClass('rotate-inverse'); }, 2200);
+                        setTimeout(function() {
+                            $('.value').addClass('rotate-inverse');
+                        }, 2200);
                         $('.water').css('height', '99%');
                     }
                 }
