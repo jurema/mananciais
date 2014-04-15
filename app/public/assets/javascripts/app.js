@@ -58,9 +58,9 @@ app.controller('homeCtrl', function($scope, $timeout, $rootScope) {
         $('.value').removeClass('rotate-inverse');
         $('.indicator').removeClass('rotate');
         $('.change').css('background', 'url(app/public/assets/images/arrow-down.png) no-repeat 95% 23px rgba(32, 47, 48, 0.9)');
-        var wrongVolume = $(this).attr("data-volume"),
-            againWrongVolume = wrongVolume.substring(0, wrongVolume.length - 2),
-            volume = parseInt(againWrongVolume.replace(',', '.'), 10) + parseInt(1, 10),
+        var volume = $(this).attr("data-volume"),
+            volume = volume.substring(0, volume.length - 2),
+            volume = volume.replace(',', '.'),
             indicator = 97 - volume,
             animate = function() {
                 if (id === "none") {
@@ -105,14 +105,39 @@ app.controller('homeCtrl', function($scope, $timeout, $rootScope) {
             $('article').css('opacity', '0');
         } else {
             $('article').css('opacity', '1');
-            $('.volume').text(wrongVolume);
+            $('.volume').text(volume.replace('.', ',') + "%");
             $('.pday').text($rootScope.dados[parseInt(id, 10) + parseInt(1, 10)].value);
             $('.pmonth').text($rootScope.dados[parseInt(id, 10) + parseInt(2, 10)].value);
 
             var pmonthmax = $rootScope.dados[parseInt(id, 10) + parseInt(3, 10)].value,
-            pmonth = $rootScope.dados[parseInt(id, 10) + parseInt(2, 10)].value;
+                pmonth = $rootScope.dados[parseInt(id, 10) + parseInt(2, 10)].value;
 
             $('.pmonthmax').text(pmonthmax);
+
+            var graph1 = pmonthmax,
+                graph1 = graph1.substring(0, graph1.length - 2),
+                graph1 = graph1.replace(',', '.');
+
+            var graph2 = pmonth,
+                graph2 = graph2.substring(0, graph2.length - 2),
+                graph2 = graph2.replace(',', '.');
+
+            var lineChartData = {
+                labels: ["2013", "2014"],
+                datasets: [{
+                    fillColor: "rgba(220,220,220,0.0)",
+                    strokeColor: "rgba(220,220,220,1)",
+                    pointColor: "rgba(220,220,220,1)",
+                    pointStrokeColor: "#fff",
+                    scaleFontColor: "#fff",
+                    scaleFontSize: 15,
+                    data: [graph1, graph2]
+                }]
+
+            };
+                        var myLine = new Chart(document.getElementById("canvas").getContext("2d")).Line(lineChartData, {
+                scaleFontColor: "#fff"
+            });
         }
     });
     $('.change').click(function(event) {

@@ -25,7 +25,7 @@ body, html {
 .container {
     padding-top: 100px;
     height: auto;
-    width: 50%;
+    width: 700px;
     margin: 0 auto;
 }
 .ruler {
@@ -241,6 +241,12 @@ article {
     width: 120px;
 }
 
+canvas {
+    margin-top: 20px;
+    height: 100px;
+    width: 1000px;
+}
+
 /* LINKS */
 a {
     color: #fff;
@@ -268,7 +274,7 @@ a:hover {
 }
 .represas {
     display: none;
-    width: 50%;
+    width: 700px;
     background: rgba(32, 47, 48, 0.9);
     padding: 15px 15px 0px 15px;
     position: absolute;
