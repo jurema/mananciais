@@ -174,10 +174,22 @@ p {
 }
 
 /* ICONS */
-.iconvolume {
-    width: auto;
-    height: auto;
+.iconlocation {
+    float: right;
 }
+
+.iconlocation .tooltip {
+    margin-left: -70px;
+    width: 200px;
+}
+
+
+.iconpmonthmax:hover .tooltip {
+    display: block;
+    opacity: 1;
+    padding-top: 55px;
+}
+
 .iconvolume:hover .tooltip {
     display: block;
     opacity: 1;
@@ -189,6 +201,11 @@ p {
     padding-top: 55px;
 }
 .iconpmonth:hover .tooltip {
+    display: block;
+    opacity: 1;
+    padding-top: 55px;
+}
+.iconlocation:hover .tooltip {
     display: block;
     opacity: 1;
     padding-top: 55px;
@@ -221,6 +238,7 @@ article {
     border-radius: 5px;
     padding:5px;
     display: block;
+    width: 120px;
 }
 
 /* LINKS */

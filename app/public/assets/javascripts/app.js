@@ -108,6 +108,11 @@ app.controller('homeCtrl', function($scope, $timeout, $rootScope) {
             $('.volume').text(wrongVolume);
             $('.pday').text($rootScope.dados[parseInt(id, 10) + parseInt(1, 10)].value);
             $('.pmonth').text($rootScope.dados[parseInt(id, 10) + parseInt(2, 10)].value);
+
+            var pmonthmax = $rootScope.dados[parseInt(id, 10) + parseInt(3, 10)].value,
+            pmonth = $rootScope.dados[parseInt(id, 10) + parseInt(2, 10)].value;
+
+            $('.pmonthmax').text(pmonthmax);
         }
     });
     $('.change').click(function(event) {
