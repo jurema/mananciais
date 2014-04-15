@@ -123,7 +123,7 @@ app.controller('homeCtrl', function($scope, $timeout, $rootScope) {
                 graph2 = graph2.replace(',', '.');
 
             var lineChartData = {
-                labels: ["2013", "2014"],
+                labels: ["Média histórica", "Esse mês"],
                 datasets: [{
                     fillColor: "rgba(220,220,220,0.0)",
                     strokeColor: "rgba(220,220,220,1)",
