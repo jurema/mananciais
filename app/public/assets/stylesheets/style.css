@@ -1,4 +1,4 @@
-@import url(../fonts/fonts.css);
+@import url(../fonts/fonts.min.css);
 
 /* RESET */
  * {
@@ -430,7 +430,7 @@ footer ul li:nth-child(6) {
         display: block;
         clear: both;
     }
-    .social div{
+    .social div {
         display: block;
         clear: both;
     }
