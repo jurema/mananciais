@@ -52,6 +52,7 @@ body, html {
     color: #fff;
     font-size: 2em;
     text-indent: 15px;
+    z-index: 9995;
 }
 /* ANIMATIONS */
  .water {
@@ -136,6 +137,8 @@ body, html {
     color: #ffe400;
     letter-spacing: -2px;
     text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    position:relative;
+    z-index: 9999;
 }
 h2 {
     font-weight: 400;
@@ -146,6 +149,8 @@ h2 {
     margin-top: -20px;
     letter-spacing: -2px;
     text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    position:relative;
+    z-index: 9999;
 }
 h3 {
     font-weight: 400;
@@ -172,24 +177,19 @@ p {
     float: left;
     margin-top: 15px;
 }
-
 /* ICONS */
-.iconlocation {
+ .iconlocation {
     float: right;
 }
-
 .iconlocation .tooltip {
     margin-left: -70px;
     width: 200px;
 }
-
-
 .iconpmonthmax:hover .tooltip {
     display: block;
     opacity: 1;
     padding-top: 55px;
 }
-
 .iconvolume:hover .tooltip {
     display: block;
     opacity: 1;
@@ -218,9 +218,12 @@ article {
     -o-transition: all .3s linear;
     -ms-transition: all .3s linear;
     transition: all .3s linear;
+    z-index: 9999;
+    position: relative;
 }
 .tooltip {
     position: absolute;
+    display: block;
     opacity: 0;
     -webkit-transition: all .3s linear;
     -moz-transition: all .3s linear;
@@ -241,16 +244,14 @@ article {
     width: 120px;
     text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
 }
-
 canvas {
     margin-top: 20px;
     height: 100px;
     width: 1000px;
     display: none;
 }
-
 /* LINKS */
-a {
+ a {
     color: #fff;
     text-decoration: none;
     -webkit-transition: all .3s linear;
@@ -262,14 +263,15 @@ a {
 a:hover {
     color: #f1e790;
 }
-
 /* DROPDOWNS */
-.change {
+ .change {
     background: url(../images/arrow-down.png) no-repeat 95% 20px rgba(33, 52, 54, 0.9);
     width: auto;
     display: block;
     padding: 15px;
     margin-top: 25px;
+    position:relative;
+    z-index: 9999;
 }
 .change:hover {
     background: url(../images/arrow-down.png) no-repeat 95% 20px rgba(32, 47, 48, 0.9);
@@ -280,16 +282,15 @@ a:hover {
     background: rgba(32, 47, 48, 0.9);
     padding: 15px 15px 0px 15px;
     position: absolute;
-    z-index: 9999;
+    z-index: 99999;
 }
 .represas h3 {
     margin: 0;
     padding-bottom: 15px;
     cursor: pointer;
 }
-
 /* RESET ANIMATIONS */
-.rotate {
+ .rotate {
     transform:rotate(90deg);
     -ms-transform:rotate(90deg);
     /* IE 9 */
@@ -310,10 +311,8 @@ a:hover {
     text-indent: 8px !important;
     padding-top: 4px;
 }
-
-
 /* FOOTER */
-.social {
+ .social {
     float: left;
 }
 .twitter-share-button {
@@ -328,6 +327,7 @@ footer {
     bottom:5%;
     width: 90%;
     font-size: 12px;
+    z-index: 9999;
 }
 footer ul {
     float: right;
@@ -345,4 +345,93 @@ footer ul li:nth-child(1) {
 footer ul li:nth-child(6) {
     font-weight: 600;
     color: #141a1b;
+}
+/*MEDIA QUERIES*/
+ @media screen and (min-width : 320px) and (max-width : 1000px) {
+    .container {
+        width: 100%;
+        padding: 20%;
+    }
+    h1 {
+        font-size: 40px !important;
+        line-height: 1;
+    }
+    h2 {
+        font-size: 30px !important;
+        margin-top: 20px;
+    }
+    h3 {
+        font-size: 20px !important;
+    }
+    .represas {
+        width: 60% !important;
+    }
+    #show-graph {
+        display: none;
+    }
+    /* ICONS */
+    .iconpmonthmax:hover .tooltip {
+        padding-top: 0px;
+        padding-left: 160px;
+    }
+    .iconvolume:hover .tooltip {
+        padding-top: 0px;
+        padding-left: 160px;
+    }
+    .iconpday:hover .tooltip {
+        padding-top: 0px;
+        padding-left: 160px;
+    }
+    .iconpmonth:hover .tooltip {
+        padding-top: 0px;
+        padding-left: 160px;
+    }
+    .iconlocation:hover .tooltip {
+        padding-top: 0px;
+        padding-left: 160px;
+    }
+    .block {
+        clear: both;
+    }
+    .tooltip {
+        position: absolute;
+        display: block;
+        opacity: 0;
+        -webkit-transition: all .3s linear;
+        -moz-transition: all .3s linear;
+        -o-transition: all .3s linear;
+        -ms-transition: all .3s linear;
+        transition: all .3s linear;
+        font-size: 12px;
+        color: #fff;
+        padding-top: 0px;
+        padding-left: 80px;
+    }
+    .social {
+        float: right;
+    }
+    .jurema {
+        display: block;
+        margin-top: 10px;
+        margin-left: 30px;
+    }
+    footer ul {
+        float: right;
+        clear: both;
+        margin-right: 33px;
+    }
+    .twitter-share-button {
+        top:4px;
+        height: auto;
+        left: 5px;
+        position: relative;
+    }
+    .social a {
+        display: block;
+        clear: both;
+    }
+    .social div{
+        display: block;
+        clear: both;
+    }
 }

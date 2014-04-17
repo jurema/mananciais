@@ -65,7 +65,7 @@ app.controller('homeCtrl', function($scope, $timeout, $rootScope) {
             });
         });
         $('.value').removeClass('rotate-inverse');
-        $('.indicator').removeClass('rotate');
+        $('.indicator').removeClass('rotatffe');
         $('.change').css('background', 'url(app/public/assets/images/arrow-down.png) no-repeat 95% 23px rgba(32, 47, 48, 0.9)');
         var volume = $(this).attr("data-volume"),
             volume = volume.substring(0, volume.length - 2),
