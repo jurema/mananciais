@@ -337,6 +337,7 @@ footer ul li {
     margin-left: 10px;
     font-weight: 400;
     color:#223a3c;
+    padding-top:8px;
 }
 footer ul li:nth-child(1) {
     font-weight: 600;

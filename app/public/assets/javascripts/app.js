@@ -67,7 +67,8 @@ app.controller('homeCtrl', function($scope, $timeout, $rootScope) {
         $('.value').removeClass('rotate-inverse');
         $('.indicator').removeClass('rotatffe');
         $('.change').css('background', 'url(app/public/assets/images/arrow-down.png) no-repeat 95% 23px rgba(32, 47, 48, 0.9)');
-        var volume = $(this).attr("data-volume"),
+        var volumeById = $rootScope.dados[$(this).data("id")].value,
+            volume = volumeById,
             volume = volume.substring(0, volume.length - 2),
             volume = volume.replace(',', '.'),
             indicator = 97 - volume,
@@ -102,7 +103,7 @@ app.controller('homeCtrl', function($scope, $timeout, $rootScope) {
             easing: 'swing',
             step: function() {
                 if (id != "none") {
-                    $('.value').text(this.someValue.toFixed(1) +"%");
+                    $('.value').text(this.someValue.toFixed(1) + "%");
                 } else {
                     $('.value').text('!');
                 }
