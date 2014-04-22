@@ -102,7 +102,7 @@ app.controller('homeCtrl', function($scope, $timeout, $rootScope) {
             easing: 'swing',
             step: function() {
                 if (id != "none") {
-                    $('.value').text(parseInt(this.someValue, 0) + parseInt(1, 0)+ "%");
+                    $('.value').text(this.someValue.toFixed(1) +"%");
                 } else {
                     $('.value').text('!');
                 }
