@@ -351,6 +351,7 @@ footer ul li:nth-child(6) {
     .container {
         width: 100%;
         padding: 20%;
+        height: 800px !important;
     }
     h1 {
         font-size: 40px !important;
@@ -433,5 +434,10 @@ footer ul li:nth-child(6) {
     .social div {
         display: block;
         clear: both;
+    }
+    body, html {
+        min-height: 100%;
+        max-height: 800px;
+        height: 800px;
     }
 }
