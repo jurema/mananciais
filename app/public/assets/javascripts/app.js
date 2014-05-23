@@ -21,6 +21,7 @@ app.run(function($rootScope, $http) {
     }).
     success(function(data, status, headers, config) {
         $rootScope.dados = data;
+        console.log(data);
         console.log('success');
     }).
     error(function(data, status, headers, config) {
@@ -69,8 +70,9 @@ app.controller('homeCtrl', function($scope, $timeout, $rootScope) {
         $('.change').css('background', 'url(app/public/assets/images/arrow-down.png) no-repeat 95% 23px rgba(32, 47, 48, 0.9)');
         var volumeById = $rootScope.dados[$(this).data("id")].value,
             volume = volumeById,
-            volume = volume.substring(0, volume.length - 2),
             volume = volume.replace(',', '.'),
+            volume = $.trim(volume),
+            volume = volume.substring(0, volume.length - 1),
             indicator = 97 - volume,
             animate = function() {
                 if (id === "none") {
