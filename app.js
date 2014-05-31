@@ -23,7 +23,7 @@ app.get('/api.json', function(req, res) {
 });
 
 function fetch() {
-    request('http://site.sabesp.com.br/imprensa/noticias-detalhe.aspx?secaoId=66&id=6248', function(err, response, body) {
+    request('http://www2.sabesp.com.br/mananciais/DivulgacaoSiteSabesp.aspx', function(err, response, body) {
         if (err) {
             log('failed.', err);
             ret = {};
@@ -33,12 +33,11 @@ function fetch() {
         var $ = cheerio.load(body),
             data = [];
 
-        $('.bgrBottomLeft table tbody tr').each(function() {
-            var td = $(this).children();
-            if (td.eq(1).text() === '') return;
+        $('.guardaImgBgDetalhe').each(function() {
+            var tr = $(this).parent();
             data.push({
-                key: td.eq(0).text(),
-                value: td.eq(1).text()
+                key: tr.find('.guardaImgBg').eq(0).text(),
+                value: tr.find('.guardaImgBgDetalhe').eq(0).text()
             });
         });
 
